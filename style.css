@@ -1,0 +1,209 @@
+/* Reset default margin dan padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    padding: 20px;
+    background-color: #f8fafc;
+  }
+  
+  header {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  
+  h1 {
+    color: #495057;
+    font-size: 2.5em;
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+  }
+  /* Navbar styling */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #E4FFC7; /* Warna hijau muda */
+  padding: 10px 20px;
+  border-radius: 6px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand a {
+  font-size: 1.5em;
+  color: #343A40; /* Warna abu-abu */
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.navbar-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar-links li a {
+  text-decoration: none;
+  font-size: 1em;
+  color: #343A40; /* Warna abu-abu */
+  transition: color 0.3s;
+}
+
+.navbar-links li a:hover {
+  color: #2ECC40; /* Warna hijau terang */
+}
+
+/* Tombol toggle untuk mobile */
+.navbar-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.5em;
+  color: #343A40; /* Warna abu-abu */
+  cursor: pointer;
+}
+
+/* Responsif untuk layar kecil */
+@media (max-width: 768px) {
+  .navbar-links {
+    display: none; /* Sembunyikan menu */
+    flex-direction: column;
+    background-color: #E4FFC7; /* Warna hijau muda */
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    width: 200px;
+    border-radius: 6px;
+    padding: 10px 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  }
+
+  .navbar-links li {
+    text-align: center;
+    padding: 10px 0;
+  }
+
+  .navbar-toggle {
+    display: block; /* Tampilkan tombol toggle */
+  }
+
+  .navbar-links.show {
+    display: flex; /* Tampilkan menu saat toggle aktif */
+  }
+}
+
+  
+  main {
+    max-width: 900px;
+    margin: auto;
+    background: #fff;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+  
+  #bmi-form,
+  #bmi-result {
+    width: 45%;
+    background-color: #f2f2f2;
+    padding: 20px;
+    border-radius: 12px;
+  }
+  
+  #bmi-result {
+    display: none; /* Hasil tersembunyi secara default */
+  }
+  
+  form label {
+    display: flex;
+    margin-bottom: 10px;
+    font-weight: 600;
+    color: #343a40;
+  }
+  
+  form input,
+  form select,
+  form button {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #ced4da;
+    border-radius: 6px;
+  }
+  
+  form button {
+    width: 48%; /* Setengah dari lebar form */
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #ced4da;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  form button[type="submit"] {
+    background-color: #17a2b8;
+    color: white;
+    border: none;
+  }
+  
+  form button[type="submit"]:hover {
+    background-color: #138496;
+  }
+  
+  form button#resetBtn {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+  }
+  
+  form button#resetBtn:hover {
+    background-color: #c82333;
+  }
+  
+  
+  #result {
+    font-size: 1.6em;
+    font-weight: bold;
+    color: #007bff;
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Tambahan untuk grafik BMI */
+  #bmi-graph {
+    position: relative;
+    height: 25px;
+    background: linear-gradient(to right, #ffc107 25%, #28a745 50%, #ffc107 75%, #dc3545 100%);
+    border-radius: 12px;
+    margin: 20px 0;
+  }
+  
+  #indicator {
+    position: absolute;
+    top: -5px;
+    width: 12px;
+    height: 35px;
+    background-color: #000;
+    border-radius: 6px;
+    transition: left 0.5s ease;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+  }
+  
+  #bmi-scale {
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+    color: #6c757d;
+    margin-top: 12px;
+  }
+  

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI Calculator Diagnostic</title>
+    <link rel="icon" type="image/png" href="bmi.png">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="navbar-brand" style="display: flex; align-items: center; gap: 10px;">
+              <img src="bmi.png" alt="BMI Calculator" style="width: 40px; height: 40px;">
+              <a href="#" style="font-size: 1.5em; color: #343A40; font-weight: bold; text-decoration: none;">BMI Calculator</a>
+            </div>
+          <button class="navbar-toggle" id="navbarToggle">
+              ☰
+            </button>
+            <ul class="navbar-links" id="navbarLinks">
+              <li><a href="#bmi-form">Form BMI</a></li>
+              <li><a href="#bmi-result">Hasil BMI</a></li>
+              <li><a href="#about">Tentang</a></li>
+            </ul>
+          </nav>
+      </header>
+    
+      <main>
+        <!-- Form Input BMI -->
+        <section id="bmi-form">
+          <h2>Hitung BMI Anda</h2>
+          <form id="bmiCalculator">
+            <label for="gender">Jenis Kelamin:</label>
+            <select id="gender" required>
+              <option value="">Pilih...</option>
+              <option value="male">Laki-Laki</option>
+              <option value="female">Wanita</option>
+            </select>
+    
+            <label for="age">Umur (tahun):</label>
+            <input type="number" id="age" min="1" required>
+
+            <label for="height">Tinggi Badan (cm):</label>
+            <input type="number" id="height" min="1" required>
+
+            <label for="weight">Berat Badan (kg):</label>
+            <input type="number" id="weight" min="1" required>
+    
+            <button type="submit">Hitung BMI</button>
+            <button type="button" id="resetBtn">Reset</button> <!-- Tombol Reset -->
+          </form>
+        </section>
+    
+        <!-- Hasil BMI -->
+        <section id="bmi-result">
+          <h2>Hasil BMI Anda</h2>
+          <p id="result"></p>
+          <p id="explanation"></p>
+    
+          <!-- Grafik BMI -->
+          <div id="bmi-graph">
+            <div id="indicator"></div>
+          </div>
+          <div id="bmi-scale">
+            <span>Kurus</span>
+            <span>Normal</span>
+            <span>Overweight</span>
+            <span>Obesitas</span>
+          </div>
+        </section>
+      </main>
+    
+      <script src="js/script.js"></script>
+</body>
+</html>
+
