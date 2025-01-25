@@ -1,5 +1,45 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
 /* Reset default margin dan padding */
+:root{
+  --base-color: #f7f8fc;
+  --base-variant : #e8e9ed;
+  --text-color: #111528;
+  --secondary-text: #232738;
+  --primary-color: #3a435d;
+  --accent-color: #0071ff;
+}
+.darkmode{
+  --base-color: #070b1d;
+  --base-variant : #101425;
+  --text-color: #fffff;
+  --secondary-text: #a4a5b8;
+  --primary-color: #3a435d;
+  --accent-color: #0071ff;
+}
+#theme-switch{
+  height: 50px;
+  width: 50px;
+  padding:0;
+  border-radius:50%;
+  background-color: var(--base-variant);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  top:20px;
+  right:20px;
+}
+#theme-switch svg{
+  fill: var(--primary-color);
+}
+#theme-switch svg:last-child{
+  display:none;
+}
+.darkmode #theme-switch svg:first-child{
+  display:none;
+}
+.darkmode #theme-switch svg:last-child{
+  display :block;
+}
 * {
     margin: 0;
     padding: 0;
@@ -10,8 +50,8 @@ body {
   margin: 0;
   padding: 10px;
   font-family: 'Poppins', sans-serif; /* Modern Font */
-  background: linear-gradient(to bottom, #e8f9fd, #c9e4f6); /* Gradient Background */
-  color: #333;
+  background: var(--base-color); /* Gradient Background */
+  color: var(--text-color);
   line-height: 1.6;
 }
   
@@ -110,7 +150,7 @@ body {
   align-items: center;
 }
 
-.home-container {
+#home-container {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 2rem;
@@ -163,6 +203,7 @@ body {
   transform: scale(1.05);
 }
 
+
 /* Styling for Section Heading */
 h1 {
   font-size: 2.5rem;
@@ -173,16 +214,6 @@ h1 {
   margin-bottom: 1rem;
   letter-spacing: 2px;
 }
-
-/* Styling for Paragraph */
-/* .home-left p {
-  font-size: 0.5rem;
-  line-height: 1.8;
-  color: #4f4f4f; /* Abu-abu gelap untuk teks */
-  /* text-align: left;
-  max-width: 800px;
-  margin: 0 0 2rem 0; /* Center and spacing below */
-
 
 /* Styling for Button */
 #startButton {
@@ -379,5 +410,113 @@ h1 {
   #bmi-info button:hover {
     background-color: #0056b3;
   }
-  
-  
+
+ /* Tentang Section */
+#tentang {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  margin-top: 50px;
+  margin-bottom: 20px;
+  padding: 40px;
+}
+
+#tentang-title {
+  flex: 1;
+}
+
+#tentang-title h2 {
+  color: #0078d7;
+  margin-bottom: 10px;
+}
+
+#tentang-title p {
+  color: #333333;
+  line-height: 1.8;
+}
+
+#tentang-content {
+  flex: 1;
+}
+
+/* BMI Table Styling */
+.bmi-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #ffffff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+  margin-top: 70px;
+}
+
+.bmi-table th {
+  background-color: #0078d7;
+  color: #ffffff;
+  padding: 12px;
+  text-align: center;
+  font-size: 1.1em;
+}
+
+.bmi-table td {
+  padding: 12px 15px;
+  text-align: center;
+  font-size: 1em;
+}
+
+.bmi-table tr:nth-child(odd) {
+  background-color: #eef6fc;
+}
+
+.bmi-table tr:nth-child(even) {
+  background-color: #ffffff;
+}
+
+.bmi-table tr:hover {
+  background-color: #d5efff;
+  transition: background-color 0.3s ease;
+}
+
+/* Status Colors */
+.underweight {
+  background-color: #e8f4fc;
+  color: #0078d7;
+}
+
+.normal {
+  background-color: #e6f8e6;
+  color: #2d872d;
+}
+
+.overweight {
+  background-color: #fff4d5;
+  color: #e68a00;
+}
+
+.obesity {
+  background-color: #ffe6e6;
+  color: #d9534f;
+}
+/* Default state sebelum elemen terlihat */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px); /* Elemen sedikit bergeser ke bawah */
+  transition: all 0.8s ease-out; /* Durasi dan efek animasi */
+}
+
+/* State saat elemen terlihat */
+.fade-in.show {
+  opacity: 1;
+  transform: translateY(0); /* Kembalikan elemen ke posisi semula */
+}
+
+
+/* Footer Styling */
+.footer {
+  text-align: center;
+  margin: 30px 0;
+  font-size: 0.9rem;
+  color: #888888;
+  width: 100%;
+  display: block;
+}

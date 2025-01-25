@@ -8,7 +8,32 @@ const explanationText = document.getElementById("explanation");
 const indicator = document.getElementById("indicator");
 const resetBtn = document.getElementById("resetBtn");
 const disclaimerText = document.getElementById("disclaimer"); // Elemen untuk disclaimer
+let darkmode = localStorage.getItem("darkmode");
+const themeSwitch = document.getElementById("theme-switch");
 
+
+const enabledarkmode = () => {
+  document.body.classList.add("darkmode");
+  localStorage.setItem("darkmode", "active");
+}
+
+const disabledarkmode = () => {
+  document.body.classList.remove("darkmode");
+  localStorage.setItem("darkmode", null);
+}
+
+if (darkmode === "active") {
+  enabledarkmode();
+}
+
+themeSwitch.addEventListener("click", () => {
+  darkmode = localStorage.getItem("darkmode");
+  if (darkmode !== "active") {
+    enabledarkmode();
+  } else {
+    disabledarkmode();
+  }
+});
 // Event listener untuk toggle navbar
 navbarToggle.addEventListener("click", () => {
   navbarLinks.classList.toggle("show");
@@ -123,3 +148,31 @@ resetBtn.addEventListener("click", function () {
      link.style.textDecoration = 'none';
    });
  });
+ 
+ // Example JavaScript for smooth scrolling
+ console.log('Scroll Event Triggered');
+ console.log('Checking elements:', document.querySelectorAll('.scroll-animation'));
+
+ // Fungsi untuk memeriksa apakah elemen berada di dalam viewport
+function isInViewport(el) {
+  const rect = el.getBoundingClientRect();
+  return (
+    rect.top <= (window.innerHeight || document.documentElement.clientHeight) &&
+    rect.bottom >= 0
+  );
+}
+
+// Fungsi untuk menangani animasi fade-in
+function handleScrollFadeIn() {
+  const fadeElements = document.querySelectorAll('.fade-in');
+  fadeElements.forEach((el) => {
+    if (isInViewport(el)) {
+      el.classList.add('show'); // Tambahkan kelas 'show' saat elemen terlihat
+    }
+  });
+}
+
+// Event listener untuk scroll dan saat halaman selesai dimuat
+window.addEventListener('scroll', handleScrollFadeIn);
+window.addEventListener('load', handleScrollFadeIn);
+
