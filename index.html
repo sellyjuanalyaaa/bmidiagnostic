@@ -26,6 +26,22 @@
           </nav>
       </header>
     
+    <section id="home">
+      <div class="home-container">
+        <div class="home-left">
+          <h1>Body Mass Index Calculator</h1>
+          <p>Berat badan ideal adalah impian semua orang. Tidak hanya memiliki tubuh yang menunjang penampilan, berat badan ideal juga memandakan kondisi tubuh yang sehat.<br><br> Bagaimana Denganmu? Yuk, hitung sekarang menggunakan kalkulator BMI</p>
+          <button id="startButton">Hitung sekarang</button> 
+        </div>
+        <div class="home-right">
+          <img src="icon.svg" alt="BMI Icon">
+        </div>
+      </div>
+    </section>
+
+    <section id="bmi-title">
+      <h1>Kalkulator BMI</h1>
+    </section>
       <main>
         <!-- Form Input BMI -->
         <section id="bmi-form">
@@ -68,10 +84,27 @@
             <span>Overweight</span>
             <span>Obesitas</span>
           </div>
+            <!-- Penjelasan Tambahan -->
+          <div id="bmi-info">
+            <h3 id="status-title"></h3>
+            <p id="status-description"></p>
+            <p><br><strong>Risiko Kesehatan:</strong> <span id="health-risks"></span></p>
+            <button id="download-bmi">Download Hasil BMI</button>
+          </div>
         </section>
+        <p id="disclaimer" style="font-size: 0.9em; color: gray; margin-top: 10px; line-height: 1.5; text-align: justify;"></p>
       </main>
-    
+
+      <!-- footer -->
+      <footer style="background-color: #f8f9fa; padding: 20px; text-align: center; border-top: 1px solid #ddd;">
+      <p style="margin: 0; font-size: 0.9em; color: #6c757d;">&copy; 2024 BMI Calculator Diagnostic. All Rights Reserved.</p>
+      <p style="margin: 0; font-size: 0.9em; color: #6c757d;">
+        Created by <a href="https://github.com/sellyjuanalyaaa" style="color: #007bff; text-decoration: none;">Sellyjuan Alya Rosalina</a>
+      </p>
+    </footer>
+
       <script src="js/script.js"></script>
 </body>
 </html>
+
 

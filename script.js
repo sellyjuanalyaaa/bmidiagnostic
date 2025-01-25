@@ -7,25 +7,53 @@ const resultText = document.getElementById("result");
 const explanationText = document.getElementById("explanation");
 const indicator = document.getElementById("indicator");
 const resetBtn = document.getElementById("resetBtn");
+const disclaimerText = document.getElementById("disclaimer"); // Elemen untuk disclaimer
 
-
+// Event listener untuk toggle navbar
 navbarToggle.addEventListener("click", () => {
-    navbarLinks.classList.toggle("show");
-  });
+  navbarLinks.classList.toggle("show");
+});
+
 // Fungsi untuk menghitung BMI
 function calculateBMI(weight, height) {
   return (weight / ((height / 100) ** 2)).toFixed(1);
 }
 
-// Fungsi untuk menjelaskan hasil BMI
+// Fungsi untuk menjelaskan hasil BMI dengan detail dan penyakit terkait
 function explainBMI(bmi, age) {
+  let statusTitle, statusDescription, healthRisks;
+
   if (age < 18) {
-    return "Perhitungan BMI mungkin tidak akurat untuk anak-anak dan remaja.";
+    statusTitle = "Perhatian untuk Anak-anak dan Remaja";
+    statusDescription =
+      "Perhitungan BMI mungkin tidak akurat untuk anak-anak dan remaja.";
+    healthRisks = "Konsultasikan dengan dokter untuk analisis lebih lanjut.";
+  } else if (bmi < 18.5) {
+    statusTitle = "Kekurangan Berat Badan";
+    statusDescription =
+      "Anda berada dalam kategori kekurangan berat badan. Disarankan untuk mengkonsultasikan kondisi ini dengan ahli gizi.";
+    healthRisks =
+      "Kemungkinan penyakit: Anemia, osteoporosis, gangguan kekebalan tubuh, dan malnutrisi.";
+  } else if (bmi >= 18.5 && bmi < 24.9) {
+    statusTitle = "Berat Badan Normal";
+    statusDescription =
+      "Anda memiliki berat badan normal. Pertahankan pola makan sehat dan rutin berolahraga.";
+    healthRisks = "Risiko penyakit rendah. Pertahankan gaya hidup sehat.";
+  } else if (bmi >= 25 && bmi < 29.9) {
+    statusTitle = "Kelebihan Berat Badan";
+    statusDescription =
+      "Anda berada dalam kategori kelebihan berat badan. Cobalah untuk mengatur pola makan dan meningkatkan aktivitas fisik.";
+    healthRisks =
+      "Kemungkinan penyakit: Tekanan darah tinggi, diabetes tipe 2, penyakit jantung.";
+  } else {
+    statusTitle = "Obesitas";
+    statusDescription =
+      "Anda berada dalam kategori obesitas. Sangat disarankan untuk menghubungi ahli gizi atau dokter untuk penanganan lebih lanjut.";
+    healthRisks =
+      "Kemungkinan penyakit: Diabetes tipe 2, penyakit jantung koroner, sleep apnea, dan osteoarthritis.";
   }
-  if (bmi < 18.5) return "Anda berada dalam kategori kekurangan berat badan.";
-  if (bmi >= 18.5 && bmi < 24.9) return "Anda memiliki berat badan normal.";
-  if (bmi >= 25 && bmi < 29.9) return "Anda berada dalam kategori kelebihan berat badan.";
-  return "Anda berada dalam kategori obesitas.";
+
+  return { statusTitle, statusDescription, healthRisks };
 }
 
 // Fungsi untuk memperbarui posisi grafik BMI
@@ -59,21 +87,39 @@ form.addEventListener("submit", function (e) {
 
   // Hitung BMI
   const bmi = calculateBMI(weight, height);
-  const explanation = explainBMI(bmi, age);
+  const { statusTitle, statusDescription, healthRisks } = explainBMI(bmi, age);
 
-  // Tampilkan hasil dan grafik
+  // Tampilkan hasil, deskripsi, dan risiko penyakit
   resultText.textContent = `BMI Anda: ${bmi}`;
-  explanationText.textContent = explanation;
-  resultSection.style.display = "block"; // Tampilkan hasil
-  updateGraph(bmi); // Update grafik
+  explanationText.textContent = statusTitle;
+  document.getElementById("status-title").textContent = statusTitle;
+  document.getElementById("status-description").textContent = statusDescription;
+  document.getElementById("health-risks").textContent = healthRisks;
+
+  // Tambahkan disclaimer
+  disclaimerText.textContent =
+    "BMI tidak sepenuhnya mewakili diagnosis menyeluruh dari kesehatan tubuh dan risiko penyakit seseorang. Anda perlu konsultasi lebih lanjut mengenai risiko dan kekhawatiran Anda terkait dengan berat badan Anda.";
+
+  // Tampilkan hasil dan update grafik
+  resultSection.style.display = "block";
+  updateGraph(bmi);
 });
 
 // Event listener pada tombol reset
 resetBtn.addEventListener("click", function () {
   // Reset semua input di form
   document.getElementById("bmiCalculator").reset();
-  
+
   // Sembunyikan hasil
   resultSection.style.display = "none";
 });
-
+ // Example JavaScript for additional footer functionality
+ const footerLinks = document.querySelectorAll('footer a');
+ footerLinks.forEach(link => {
+   link.addEventListener('mouseover', () => {
+     link.style.textDecoration = 'underline';
+   });
+   link.addEventListener('mouseout', () => {
+     link.style.textDecoration = 'none';
+   });
+ });
