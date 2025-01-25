@@ -1,76 +1,75 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
-/* Reset default margin dan padding */
-:root{
+
+/* Reset default margin and padding */
+:root {
   --base-color: #f7f8fc;
-  --base-variant : #e8e9ed;
+  --base-variant: #e8e9ed;
   --text-color: #111528;
   --secondary-text: #232738;
   --primary-color: #3a435d;
   --accent-color: #0071ff;
 }
-.darkmode{
+
+.darkmode {
   --base-color: #070b1d;
-  --base-variant : #101425;
-  --text-color: #fffff;
+  --base-variant: #101425;
+  --text-color: #ffffff;
   --secondary-text: #a4a5b8;
   --primary-color: #3a435d;
   --accent-color: #0071ff;
 }
-#theme-switch{
+
+#theme-switch {
   height: 50px;
   width: 50px;
-  padding:0;
-  border-radius:50%;
+  padding: 0;
+  border-radius: 50%;
   background-color: var(--base-variant);
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  top:20px;
-  right:20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 20px;
+  right: 20px;
 }
-#theme-switch svg{
+#theme-switch svg {
   fill: var(--primary-color);
 }
-#theme-switch svg:last-child{
-  display:none;
+#theme-switch svg:last-child {
+  display: none;
 }
-.darkmode #theme-switch svg:first-child{
-  display:none;
+.darkmode #theme-switch svg:first-child {
+  display: none;
 }
-.darkmode #theme-switch svg:last-child{
-  display :block;
+.darkmode #theme-switch svg:last-child {
+  display: block;
 }
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  /* General Reset */
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* General Reset */
 body {
   margin: 0;
   padding: 10px;
   font-family: 'Poppins', sans-serif; /* Modern Font */
-  background: var(--base-color); /* Gradient Background */
+  background: var(--base-color); /* Background Color */
   color: var(--text-color);
   line-height: 1.6;
 }
-  
-  header {
-    text-align: center;
-    margin-bottom: 30px;
-  }
-/*   
-  h1 {
-    color: #1b8dd4;
-    font-size: 2.5em;
-    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
-  } */
-  /* Navbar styling */
+
+header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+/* Navbar styling */
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #C5E3F7; /* Warna biru muda */
+  background-color: #C5E3F7; /* Light blue */
   padding: 10px 20px;
   border-radius: 6px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
@@ -78,7 +77,7 @@ body {
 
 .navbar-brand a {
   font-size: 1.5em;
-  color: #1b8dd4; /* Warna biru muda */
+  color: #1b8dd4;
   font-weight: bold;
   text-decoration: none;
 }
@@ -94,30 +93,30 @@ body {
 .navbar-links li a {
   text-decoration: none;
   font-size: 1em;
-  color: #1b8dd4; /* Warna biru muda */
+  color: #1b8dd4;
   transition: color 0.3s;
 }
 
 .navbar-links li a:hover {
-  color: #1b8dd4; /* Warna biru muda */
+  color: #1b8dd4;
 }
 
-/* Tombol toggle untuk mobile */
+/* Navbar toggle for mobile */
 .navbar-toggle {
   display: none;
   background: none;
   border: none;
   font-size: 1.5em;
-  color: #1b8dd4; /* Warna biru muda */
+  color: #1b8dd4;
   cursor: pointer;
 }
 
-/* Responsif untuk layar kecil */
+/* Responsive for smaller screens */
 @media (max-width: 768px) {
   .navbar-links {
-    display: none; /* Sembunyikan menu */
+    display: none; /* Hide menu */
     flex-direction: column;
-    background-color: #C5E3F7; /* Warna biru muda */
+    background-color: #C5E3F7; /* Light blue */
     position: absolute;
     top: 60px;
     right: 20px;
@@ -133,15 +132,15 @@ body {
   }
 
   .navbar-toggle {
-    display: block; /* Tampilkan tombol toggle */
+    display: block; /* Show toggle button */
   }
 
   .navbar-links.show {
-    display: flex; /* Tampilkan menu saat toggle aktif */
+    display: flex; /* Show menu when toggle is active */
   }
 }
 
-/* Section Home Styling */
+/* Home Section Styling */
 #home { 
   color: white;
   padding: 4rem 2rem;
@@ -172,7 +171,6 @@ body {
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 2px;
-  color: #1b8dd4;
 }
 
 .home-left p {
@@ -203,19 +201,18 @@ body {
   transform: scale(1.05);
 }
 
-
-/* Styling for Section Heading */
+/* Section Heading */
 h1 {
   font-size: 2.5rem;
   font-weight: 700;
-  color: #1b8dd4; /* Biru muda untuk kesan sehat */
+  color: #1b8dd4; /* Light blue */
   text-align: left;
   text-transform: uppercase;
   margin-bottom: 1rem;
   letter-spacing: 2px;
 }
 
-/* Styling for Button */
+/* Button Styling */
 #startButton {
   display: block;
   margin-left: 0;
@@ -224,7 +221,7 @@ h1 {
   font-size: 1.2rem;
   font-weight: 600;
   color: white;
-  background: linear-gradient(45deg, #45b3fa, #648bff); /* Gradasi biru muda */
+  background: linear-gradient(45deg, #45b3fa, #648bff); /* Light blue gradient */
   border: none;
   border-radius: 25px;
   box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
@@ -267,151 +264,153 @@ h1 {
     width: 90%; /* Adjust image size for mobile */
   }
 }
-  #bmi-title h1{
-    font-size: 2.5rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color : linear-gradient(45deg, #45b3fa, #648bff); /* Gradasi biru muda */ 
-    width : 70%;
-    margin-left: 15%;
-  }
-  main {
-    max-width: 900px;
-    margin: auto;
-    background: #fff;
-    padding: 25px;
-    border-radius: 12px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: flex-start;
-  }
-  
-  #bmi-form,
-  #bmi-result {
-    width: 45%;
-    background-color: #f2f2f2;
-    padding: 20px;
-    border-radius: 12px;
-  }
-  
-  #bmi-result {
-    display: none; /* Hasil tersembunyi secara default */
-  }
-  
-  form label {
-    display: flex;
-    margin-bottom: 10px;
-    font-weight: 600;
-    color: #343a40;
-  }
-  
-  form input,
-  form select,
-  form button {
-    width: 100%;
-    padding: 12px;
-    margin-bottom: 20px;
-    border: 1px solid #ced4da;
-    border-radius: 6px;
-  }
-  
-  form button {
-    width: 48%; /* Setengah dari lebar form */
-    padding: 12px;
-    margin-bottom: 20px;
-    border: 1px solid #ced4da;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-  
-  form button[type="submit"] {
-    background-color: #17a2b8;
-    color: white;
-    border: none;
-  }
-  
-  form button[type="submit"]:hover {
-    background-color: #138496;
-  }
-  
-  form button#resetBtn {
-    background-color: #dc3545;
-    color: white;
-    border: none;
-  }
-  
-  form button#resetBtn:hover {
-    background-color: #c82333;
-  }
-  
-  
-  #result {
-    font-size: 1.6em;
-    font-weight: bold;
-    color: #007bff;
-    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
-  }
-  
-  /* Tambahan untuk grafik BMI */
-  #bmi-graph {
-    position: relative;
-    height: 25px;
-    background: linear-gradient(to right, #ffc107 25%, #28a745 50%, #ffc107 75%, #dc3545 100%);
-    border-radius: 12px;
-    margin: 20px 0;
-  }
-  
-  #indicator {
-    position: absolute;
-    top: -5px;
-    width: 12px;
-    height: 35px;
-    background-color: #000;
-    border-radius: 6px;
-    transition: left 0.5s ease;
-    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
-  }
-  
-  #bmi-scale {
-    display: flex;
-    justify-content: space-between;
-    font-size: 13px;
-    color: #6c757d;
-    margin-top: 12px;
-  }
-  #bmi-info {
-    margin-top: 20px;
-    padding: 15px;
-    background-color: #f8f9fa;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    text-align: center;
-  }
-  
-  #bmi-info h3 {
-    color: #343a40;
-    font-weight: bold;
-  }
-  
-  #bmi-info button {
-    margin-top: 10px;
-    padding: 10px 15px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  #bmi-info button:hover {
-    background-color: #0056b3;
-  }
 
- /* Tentang Section */
+#bmi-title h1 {
+  font-size: 2.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #1b8dd4;
+  width: 70%;
+  margin-left: 15%;
+}
+
+main {
+  max-width: 900px;
+  margin: auto;
+  background: #fff;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+#bmi-form,
+#bmi-result {
+  width: 45%;
+  background-color: #f2f2f2;
+  padding: 20px;
+  border-radius: 12px;
+}
+
+#bmi-result {
+  display: none; /* Hidden by default */
+}
+
+form label {
+  display: flex;
+  margin-bottom: 10px;
+  font-weight: 600;
+  color: #343a40;
+}
+
+form input,
+form select,
+form button {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 20px;
+  border: 1px solid #ced4da;
+  border-radius: 6px;
+}
+
+form button {
+  width: 48%; /* Half the width of the form */
+  padding: 12px;
+  margin-bottom: 20px;
+  border: 1px solid #ced4da;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+form button[type="submit"] {
+  background-color: #17a2b8;
+  color: white;
+  border: none;
+}
+
+form button[type="submit"]:hover {
+  background-color: #138496;
+}
+
+form button#resetBtn {
+  background-color: #dc3545;
+  color: white;
+  border: none;
+}
+
+form button#resetBtn:hover {
+  background-color: #c82333;
+}
+
+#result {
+  font-size: 1.6em;
+  font-weight: bold;
+  color: #007bff;
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* BMI Graph Styles */
+#bmi-graph {
+  position: relative;
+  height: 25px;
+  background: linear-gradient(to right, #ffc107 25%, #28a745 50%, #ffc107 75%, #dc3545 100%);
+  border-radius: 12px;
+  margin: 20px 0;
+}
+
+#indicator {
+  position: absolute;
+  top: -5px;
+  width: 12px;
+  height: 35px;
+  background-color: #000;
+  border-radius: 6px;
+  transition: left 0.5s ease;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+}
+
+#bmi-scale {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  color: #6c757d;
+  margin-top: 12px;
+}
+
+#bmi-info {
+  margin-top: 20px;
+  padding: 15px;
+  background-color: #f8f9fa;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  text-align: center;
+}
+
+#bmi-info h3 {
+  color: #343a40;
+  font-weight: bold;
+}
+
+#bmi-info button {
+  margin-top: 10px;
+  padding: 10px 15px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#bmi-info button:hover {
+  background-color: #0056b3;
+}
+
+/* About Section */
 #tentang {
   display: flex;
   flex-direction: row;
@@ -497,19 +496,18 @@ h1 {
   background-color: #ffe6e6;
   color: #d9534f;
 }
-/* Default state sebelum elemen terlihat */
+
+/* Fade In Animation */
 .fade-in {
   opacity: 0;
-  transform: translateY(20px); /* Elemen sedikit bergeser ke bawah */
-  transition: all 0.8s ease-out; /* Durasi dan efek animasi */
+  transform: translateY(20px);
+  transition: all 0.8s ease-out;
 }
 
-/* State saat elemen terlihat */
 .fade-in.show {
   opacity: 1;
-  transform: translateY(0); /* Kembalikan elemen ke posisi semula */
+  transform: translateY(0);
 }
-
 
 /* Footer Styling */
 .footer {
@@ -519,4 +517,20 @@ h1 {
   color: #888888;
   width: 100%;
   display: block;
+}
+
+/* Additional responsive styles */
+@media (max-width: 768px) {
+  #bmi-form, #bmi-result {
+    width: 100%; /* Full width on small screens */
+  }
+
+  #tentang {
+    flex-direction: column; /* Stack content vertically */
+  }
+
+  #tentang-title, 
+  #tentang-content {
+    width: 100%; /* Ensure content takes full width */
+  }
 }
