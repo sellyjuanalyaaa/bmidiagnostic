@@ -96,7 +96,31 @@ function updateGraph(bmi) {
 
   indicator.style.left = `calc(${Math.min(Math.max(position, 0), 100)}% - 6px)`;
 }
+// Fungsi untuk validasi input
+function validateInput(gender, weight, height, age) {
+  if (!gender) {
+    alert("Harap isi kolom gender!");
+    return false;
+  }
 
+  if (!age || age <= 0 || age > 100) {
+    alert(`Umur harus antara 1 hingga 100 tahun. Nilai yang diinputkan adalah ${age || "kosong"}.`);
+    return false;
+  }
+
+  if (!height || height <= 0 || height > 200) {
+    alert(`Tinggi badan harus antara 1 hingga 200 cm. Nilai yang diinputkan adalah ${height || "kosong"}.`);
+    return false;
+  }
+
+  if (!weight || weight <= 0 || weight > 200) {
+    alert(`Berat badan harus antara 1 hingga 200 kg. Nilai yang diinputkan adalah ${weight || "kosong"}.`);
+    return false;
+  }
+
+  // Jika semua validasi terpenuhi
+  return true;
+}
 // Event listener pada form
 form.addEventListener("submit", function (e) {
   e.preventDefault();
@@ -105,21 +129,20 @@ form.addEventListener("submit", function (e) {
   const height = parseFloat(document.getElementById("height").value);
   const age = parseFloat(document.getElementById("age").value);
 
-  if (!gender || !weight || !height || !age) {
-    alert("Harap isi semua kolom!");
-    return;
-  }
+  // Panggil fungsi validasi
+  const isValid = validateInput(gender, weight, height, age);
+  if (!isValid) return; // Jika tidak valid, hentikan proses
 
   // Hitung BMI
   const bmi = calculateBMI(weight, height);
   const { statusTitle, statusDescription, healthRisks } = explainBMI(bmi, age);
 
   // Tampilkan hasil, deskripsi, dan risiko penyakit
-  resultText.textContent = `BMI Anda: ${bmi}`;
-  explanationText.textContent = statusTitle;
+  document.getElementById("result").textContent = `BMI Anda: ${bmi}`;
   document.getElementById("status-title").textContent = statusTitle;
   document.getElementById("status-description").textContent = statusDescription;
   document.getElementById("health-risks").textContent = healthRisks;
+  resultSection.style.display = "block";
 
   // Tambahkan disclaimer
   disclaimerText.textContent =
@@ -133,11 +156,12 @@ form.addEventListener("submit", function (e) {
 // Event listener pada tombol reset
 resetBtn.addEventListener("click", function () {
   // Reset semua input di form
-  document.getElementById("bmiCalculator").reset();
+  form.reset();
 
   // Sembunyikan hasil
   resultSection.style.display = "none";
 });
+
  // Example JavaScript for additional footer functionality
  const footerLinks = document.querySelectorAll('footer a');
  footerLinks.forEach(link => {
